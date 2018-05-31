@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "LNPhotoAlbumListViewController.h"
+#import "LNPhotoManager.h"
 
 @interface ViewController ()
 
@@ -17,6 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIButton *button  =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setFrame:CGRectMake(200, 200, 100, 100)];
+    [button setBackgroundColor:[UIColor redColor]];
+    [button addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+-(void)btnAction{
+    [LNPhotoManager initWithMaxCount:5 type:1 photoArrBlock:^(NSArray *selectPhotoArray) {
+        
+    }];
+//    LNPhotoAlbumListViewController * vc = [[LNPhotoAlbumListViewController alloc]init];
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+//    [self presentViewController:nav animated:NO completion:^{
+//
+//    }];
 }
 
 
