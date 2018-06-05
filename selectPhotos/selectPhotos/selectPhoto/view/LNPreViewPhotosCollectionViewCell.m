@@ -1,18 +1,15 @@
 //
-//  bigImageCollectionViewCell.m
-//  CH999
+//  LNPreViewPhotosCollectionViewCell.m
+//  selectPhotos
 //
-//  Created by Archer on 2017/2/9.
-//  Copyright © 2017年 ch999.com. All rights reserved.
+//  Created by Lina on 2018/6/4.
+//  Copyright © 2018年 Lina. All rights reserved.
 //
 
-#import "bigImageCollectionViewCell.h"
-
-@implementation bigImageCollectionViewCell
-
+#import "LNPreViewPhotosCollectionViewCell.h"
 #define allScreen [UIScreen mainScreen].bounds.size
 
-
+@implementation LNPreViewPhotosCollectionViewCell
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -25,19 +22,17 @@
     for (UIView *view in self.contentView.subviews) {
         [view removeFromSuperview];
     }
-    
     _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, allScreen.width, allScreen.height)];
     [self.contentView addSubview:_imageView];
 }
 
--(void)getBigImageWithAsset:(PHAsset *)asset{
+-(void)getImageWithAsset:(PHAsset *)asset{
     PHImageRequestOptions *reques = [[PHImageRequestOptions alloc]init];
     reques.synchronous = NO;
     reques.networkAccessAllowed = NO;
     reques.resizeMode = PHImageRequestOptionsResizeModeExact;
     reques.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
-    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(allScreen.width / 4, allScreen.height / 4) contentMode:PHImageContentModeAspectFit options:reques resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-        
+    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(allScreen.width, allScreen.height) contentMode:PHImageContentModeAspectFit options:reques resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
             _imageView.image = result;
         }else{
@@ -47,8 +42,6 @@
         _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.clipsToBounds = YES;
         _imageView.userInteractionEnabled = YES;
-        
     }];
 }
-
 @end

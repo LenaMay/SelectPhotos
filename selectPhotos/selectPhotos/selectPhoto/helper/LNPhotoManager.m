@@ -18,6 +18,9 @@
     [manager clear];
     manager.maxCount = maxCount;
     manager.type = type;
+    manager.isCanEdit = NO;
+    manager.isCanPreView  = NO;
+    manager.isOnly = YES;
     manager.selectPhotosBlock = photoArrBlock;
     [self loadinfo];
    
@@ -47,6 +50,7 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:nav animated:YES completion:nil];
 }
+
 
 
 

@@ -8,6 +8,10 @@
 
 #import "LNPhotoListViewController.h"
 #import "LNPhotoCollectionViewCell.h"
+#import "LNPreViewPhotosCollectionViewCell.h"
+#import "LNSelectPhotosPreviewViewController.h"
+
+
 
 @interface LNPhotoListViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,LNPhotoCollectionViewCellDelegate>
 @property (nonatomic, strong)UICollectionView *myCollect;
@@ -26,6 +30,13 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.myCollect reloadData];
+    NSArray *photoArr = [[LNPhotoSelectManager sharedManager] selectPhotoArray];
+     [_sureButton setTitle:[NSString stringWithFormat:@"确定 (%ld/%ld)",photoArr.count,[[LNPhotoSelectManager sharedManager] maxCount]] forState:UIControlStateNormal];
+     [_sureButton setEnabled:photoArr.count>0?YES:NO];
+}
 
 
 
@@ -69,7 +80,8 @@
 - (UICollectionView *)myCollect{
     if (!_myCollect) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        _myCollect = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - 46) collectionViewLayout:layout];
+        CGFloat length = [[LNPhotoSelectManager sharedManager] isOnly] ?0:46;
+        _myCollect = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64 - length) collectionViewLayout:layout];
         layout.itemSize = CGSizeMake((self.view.frame.size.width - 25) / 4, (self.view.frame.size.width - 25) / 4);
         [_myCollect registerClass:[LNPhotoCollectionViewCell class] forCellWithReuseIdentifier:@"LNPhotoCollectionViewCell"];
         _myCollect.delegate = self;
@@ -111,6 +123,19 @@
 #pragma mark - Action
 
 - (void)sureAction{
+    
+    NSArray *array = [LNPhotoSelectManager sharedManager].selectPhotoArray;
+    NSMutableArray *imageArray = [NSMutableArray array];
+    for (int i = 0; i<array.count; i++) {
+        LNPhotoModel *model = array[i];
+        if (model.image) {
+            [imageArray addObject:model.image];
+        }
+    }
+    
+    if ([LNPhotoSelectManager sharedManager].selectPhotosBlock) {
+        [LNPhotoSelectManager sharedManager].selectPhotosBlock(imageArray);
+    }
     [self btnClick];
 }
 
@@ -142,65 +167,25 @@
         }
     }
     NSLog(@"%ld",indexPath.item);
-    
+    [cell.selectBtn setHidden: [[LNPhotoSelectManager sharedManager] isOnly]];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-//    PhotoScrViewController *scView = [[PhotoScrViewController alloc]init];
-//    scView.PHFetchR = self.PHFetchR;
-//    scView.whichOne = [NSString stringWithFormat:@"%ld",indexPath.item];
-//    scView.lastDic = thisSelectedDic;
-//    scView.albumIdentifier = _albumIdentifier;
-//    scView.isNeed = _isNeed;
-//    scView.maxCount = _maxCount;
-//    scView.isOriginal = _isOriginal;
-//
-//    [scView setSelectedDicBlock:^(NSDictionary *selectDic){
-//        thisSelectedDic = [[NSMutableDictionary alloc]initWithDictionary:selectDic];
-//
-//        for (int i = 0; i < self.PHFetchR.count; i++) {
-//            PHAssetCollection *assetCollection =  (PHAssetCollection *)_PHFetchR[i];
-//
-//            if ([thisSelectedDic[@"photoArray"] count] > 0) {
-//                for (int j = 0; j < [thisSelectedDic[@"photoArray"] count]; j++) {
-//                    if ([thisSelectedDic[@"photoArray"][j][@"photoIdentifier"] isEqualToString:assetCollection.localIdentifier]) {
-//                        UIButton *selectBtn = (id)[self.view viewWithTag:i + 10000];
-//                        [selectBtn setSelected:YES];
-//                        break;
-//                    }else{
-//                        UIButton *selectBtn = (id)[self.view viewWithTag:i + 10000];
-//                        [selectBtn setSelected:NO];
-//                    }
-//                }
-//            }else{
-//                UIButton *selectBtn = (id)[self.view viewWithTag:i + 10000];
-//                [selectBtn setSelected:NO];
-//            }
-//
-//
-//        }
-//
-//        if ([thisSelectedDic[@"photoArray"] count] > 0) {
-//            UILabel *comlpleteLbl = (id)[self.view viewWithTag:16000];
-//            comlpleteLbl.text = [NSString stringWithFormat:@"%ld",[thisSelectedDic[@"photoArray"] count]];
-//            self.title = [NSString stringWithFormat:@"%ld/%ld",[thisSelectedDic[@"photoArray"] count],_maxCount];
-//            comlpleteLbl.hidden = NO;
-//        }else{
-//            self.title = [NSString stringWithFormat:@"0/%ld",_maxCount];
-//        }
-//
-//    }];
-//    [scView setGetSubmitDic:^(NSMutableDictionary *dic){
-//        self.getSubmitDictionary(dic);
-//    }];
-//
-//    [scView setOriginalBlock:^(NSString *isOriginal){
-//        self.isOriginal = isOriginal;
-//        [_submitDic setObject:isOriginal forKey:@"isOriginal"];
-//    }];
-//
-//    [self.navigationController pushViewController:scView animated:YES];
+    
+    if ([[LNPhotoSelectManager sharedManager] isOnly]) {
+        
+    }
+    else{
+        if ([[LNPhotoSelectManager sharedManager] isCanPreView]) {
+            LNSelectPhotosPreviewViewController *scView = [[LNSelectPhotosPreviewViewController alloc]init];
+            scView.model = self.model;
+            scView.currentItem = indexPath.item;
+            [self.navigationController pushViewController:scView animated:YES];
+        }
+    }
+
+    
 }
 
 #pragma mark - LNPhotoCollectionViewCellDelegate

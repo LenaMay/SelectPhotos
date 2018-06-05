@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Masonry/Masonry.h>
+#import "LNSelectPhoto.h"
+
 
 @interface LNPhotoAlbumListViewController : UIViewController
+@property (nonatomic, assign)BOOL  isOnly;
 
 @end

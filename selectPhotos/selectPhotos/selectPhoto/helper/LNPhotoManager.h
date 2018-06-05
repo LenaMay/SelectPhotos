@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
 #import "LNPhotoSelectManager.h"
+#import "LNSelectPhoto.h"
 
 @interface LNPhotoManager : NSObject
 + (void)initWithMaxCount:(NSInteger )maxCount type:(NSInteger)type photoArrBlock:(photoArrBlock)photoArrBlock;

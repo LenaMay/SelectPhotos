@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LNSelectPhoto.h"
+
 
 @interface LNSelectPhotosPreviewViewController : UIViewController
 @property (nonatomic, strong) LNAlbumModel  *model;

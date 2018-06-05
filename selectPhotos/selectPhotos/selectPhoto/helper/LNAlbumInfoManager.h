@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import "LNSelectPhoto.h"
 
 @interface LNAlbumInfoManager : NSObject
 /** 获取单例对象 PhotoManager */

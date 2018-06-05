@@ -27,6 +27,11 @@
 		3E8E7B9320BD7DE90046033F /* selectPhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E7B9220BD7DE90046033F /* selectPhotosTests.m */; };
 		3E8E7B9E20BD7DE90046033F /* selectPhotosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E7B9D20BD7DE90046033F /* selectPhotosUITests.m */; };
 		3E8E7BAE20BD8E3B0046033F /* LNPhotoAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8E7BAD20BD8E3B0046033F /* LNPhotoAlbumListViewController.m */; };
+		3E905DE220C54B7C00027C4E /* LNPreViewBottomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E905DE120C54B7C00027C4E /* LNPreViewBottomImageView.m */; };
+		3E905DE520C54FD000027C4E /* LNPreViewBottonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E905DE420C54FD000027C4E /* LNPreViewBottonView.m */; };
+		3EBB084720C4E14200BD3C81 /* LNBackBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB084620C4E14200BD3C81 /* LNBackBlackView.m */; };
+		3EBB084B20C4E7D100BD3C81 /* LN_photoBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EBB084A20C4E7D100BD3C81 /* LN_photoBack@2x.png */; };
+		3EBB084E20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB084D20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.m */; };
 		3ECA0F3820BEA373005E473D /* ic_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECA0F3720BEA373005E473D /* ic_next@2x.png */; };
 		3ECA0F3A20BEA4E9005E473D /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ECA0F3920BEA4E9005E473D /* noimage.png */; };
 		6D3B03D669F02DB9A8B160AA /* libPods-selectPhotos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA53B6FD29C9705BD0D80F20 /* libPods-selectPhotos.a */; };
@@ -90,6 +95,15 @@
 		3E8E7B9F20BD7DE90046033F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E8E7BAC20BD8E3B0046033F /* LNPhotoAlbumListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNPhotoAlbumListViewController.h; sourceTree = "<group>"; };
 		3E8E7BAD20BD8E3B0046033F /* LNPhotoAlbumListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNPhotoAlbumListViewController.m; sourceTree = "<group>"; };
+		3E905DE020C54B7C00027C4E /* LNPreViewBottomImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNPreViewBottomImageView.h; sourceTree = "<group>"; };
+		3E905DE120C54B7C00027C4E /* LNPreViewBottomImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNPreViewBottomImageView.m; sourceTree = "<group>"; };
+		3E905DE320C54FD000027C4E /* LNPreViewBottonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNPreViewBottonView.h; sourceTree = "<group>"; };
+		3E905DE420C54FD000027C4E /* LNPreViewBottonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNPreViewBottonView.m; sourceTree = "<group>"; };
+		3EBB084520C4E14200BD3C81 /* LNBackBlackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNBackBlackView.h; sourceTree = "<group>"; };
+		3EBB084620C4E14200BD3C81 /* LNBackBlackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNBackBlackView.m; sourceTree = "<group>"; };
+		3EBB084A20C4E7D100BD3C81 /* LN_photoBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LN_photoBack@2x.png"; sourceTree = "<group>"; };
+		3EBB084C20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LNPreViewPhotosCollectionViewCell.h; sourceTree = "<group>"; };
+		3EBB084D20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNPreViewPhotosCollectionViewCell.m; sourceTree = "<group>"; };
 		3ECA0F3720BEA373005E473D /* ic_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_next@2x.png"; sourceTree = "<group>"; };
 		3ECA0F3920BEA4E9005E473D /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 		3ECA0F5020BF8FDC005E473D /* selectPhotos copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "selectPhotos copy-Info.plist"; path = "/Users/dxg/SelectPhotos/selectPhotos/selectPhotos copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -141,6 +155,14 @@
 			children = (
 				3E08842420BF957C00D8ED00 /* LNPhotoCollectionViewCell.h */,
 				3E08842320BF957C00D8ED00 /* LNPhotoCollectionViewCell.m */,
+				3EBB084C20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.h */,
+				3EBB084D20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.m */,
+				3EBB084520C4E14200BD3C81 /* LNBackBlackView.h */,
+				3EBB084620C4E14200BD3C81 /* LNBackBlackView.m */,
+				3E905DE020C54B7C00027C4E /* LNPreViewBottomImageView.h */,
+				3E905DE120C54B7C00027C4E /* LNPreViewBottomImageView.m */,
+				3E905DE320C54FD000027C4E /* LNPreViewBottonView.h */,
+				3E905DE420C54FD000027C4E /* LNPreViewBottonView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -249,6 +271,7 @@
 				3E08842620BF95E900D8ED00 /* LN_ic_check@2x.png */,
 				3E08843020BFE29C00D8ED00 /* LN_news_back@2x.png */,
 				3E08842720BF95E900D8ED00 /* LN_ic_unchecked@2x.png */,
+				3EBB084A20C4E7D100BD3C81 /* LN_photoBack@2x.png */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -383,6 +406,7 @@
 				3ECA0F3820BEA373005E473D /* ic_next@2x.png in Resources */,
 				3E8E7B8320BD7DE80046033F /* Assets.xcassets in Resources */,
 				3E8E7B8120BD7DE80046033F /* Main.storyboard in Resources */,
+				3EBB084B20C4E7D100BD3C81 /* LN_photoBack@2x.png in Resources */,
 				3E08843120BFE29C00D8ED00 /* LN_news_back@2x.png in Resources */,
 				3E08842820BF95E900D8ED00 /* LN_ic_check@2x.png in Resources */,
 			);
@@ -430,16 +454,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EBB084720C4E14200BD3C81 /* LNBackBlackView.m in Sources */,
 				3E08842220BF948F00D8ED00 /* LNPhotoListViewController.m in Sources */,
+				3EBB084E20C4EE1800BD3C81 /* LNPreViewPhotosCollectionViewCell.m in Sources */,
 				3E8E7B7E20BD7DE80046033F /* ViewController.m in Sources */,
 				3E8E7B8920BD7DE80046033F /* main.m in Sources */,
 				3E65848E20BE7579008D97B7 /* LNAlbumInfoManager.m in Sources */,
 				3E8E7B7B20BD7DE80046033F /* AppDelegate.m in Sources */,
 				3E08842520BF957C00D8ED00 /* LNPhotoCollectionViewCell.m in Sources */,
 				3E08842F20BFA34100D8ED00 /* LNPhotoManager.m in Sources */,
+				3E905DE220C54B7C00027C4E /* LNPreViewBottomImageView.m in Sources */,
 				3E08842C20BFA0C000D8ED00 /* LNPhotoSelectManager.m in Sources */,
 				3E08844220C01FD000D8ED00 /* LNSelectPhotosPreviewViewController.m in Sources */,
 				3E08843420BFF6F900D8ED00 /* LNPhotoModel.m in Sources */,
+				3E905DE520C54FD000027C4E /* LNPreViewBottonView.m in Sources */,
 				3E8E7BAE20BD8E3B0046033F /* LNPhotoAlbumListViewController.m in Sources */,
 				3E65849120BE7645008D97B7 /* LNAlbumModel.m in Sources */,
 			);

@@ -27,14 +27,25 @@
 }
 
 -(void)btnAction{
-    [LNPhotoManager initWithMaxCount:5 type:1 photoArrBlock:^(NSArray *selectPhotoArray) {
-        
+    [LNPhotoManager initWithMaxCount:10 type:1 photoArrBlock:^(NSArray *selectPhotoArray) {
+        [self setupView:selectPhotoArray];
     }];
+    
 //    LNPhotoAlbumListViewController * vc = [[LNPhotoAlbumListViewController alloc]init];
 //    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
 //    [self presentViewController:nav animated:NO completion:^{
 //
 //    }];
+}
+
+- (void)setupView:(NSArray *)imageArray{
+    
+    for (int i = 0; i<imageArray.count; i++) {
+        UIImageView *imageView = [[UIImageView  alloc]initWithFrame:CGRectMake(0, 40 * i + 50, 50, 50)];
+        imageView.image = imageArray[i];
+        [self.view addSubview:imageView];
+    }
+    
 }
 
 

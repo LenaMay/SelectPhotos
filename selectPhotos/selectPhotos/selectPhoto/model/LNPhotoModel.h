@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Photos/Photos.h>
+#import "LNSelectPhoto.h"
 
 @interface LNPhotoModel : NSObject
 @property (nonatomic, copy) NSString * photoIdentifier;

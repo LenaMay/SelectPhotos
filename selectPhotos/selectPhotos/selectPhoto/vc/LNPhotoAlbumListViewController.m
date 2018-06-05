@@ -11,10 +11,7 @@
 #import "LNAlbumInfoManager.h"
 #import "LNPhotoListViewController.h"
 
-#define __WeakSelf__  __weak typeof (self)
-#define weakifyself __WeakSelf__ wSelf = self;
-#define __StrongSelf__  __strong typeof (self)
-#define strongifyself __StrongSelf__ self = wSelf;
+
 
 
 @interface LNPhotoAlbumListViewController ()
